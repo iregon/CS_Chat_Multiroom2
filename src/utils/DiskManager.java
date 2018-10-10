@@ -10,7 +10,7 @@ public class DiskManager {
 	
 	public DiskManager() {}
 	
-	public synchronized void writeOnDisk(String path, String fileName, String msg) {
+	public void writeOnDisk(String path, String fileName, String msg) {
 		try {
 			pw = new PrintWriter(new FileOutputStream(new File(path + fileName), true));
 			pw.append(msg);

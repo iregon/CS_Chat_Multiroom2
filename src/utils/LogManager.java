@@ -25,7 +25,7 @@ public class LogManager {
         return instance;
     }
     
-    public void appendLog(String msg) {
+    public synchronized void appendLog(String msg) {
     	String fileName = generateFileName();
     	diskManager.writeOnDisk(path, fileName, msg);
     }

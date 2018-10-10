@@ -1,5 +1,7 @@
 package server.thread;
 
-public class ServerThreadView {
+import javax.swing.JFrame;
+
+public class ServerThreadView extends JFrame{
 
 }

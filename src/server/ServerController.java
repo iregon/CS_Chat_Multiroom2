@@ -7,6 +7,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import server.thread.MVCServerThread;
+import utils.DateManager;
+import utils.LogManager;
+
 public class ServerController {
 	private ServerModel serverModel;
 	private ServerView serverView;
@@ -24,13 +28,12 @@ public class ServerController {
 		try {
 			ServerSocket ss = new ServerSocket(9090);
 			
-			DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-			Calendar cal = Calendar.getInstance();
-			logManager.appendLog(">>> Server avviato il " + dateFormat.format(cal.getTime()));
+			String date = DateManager.getDateManager().getTodaysData();
+			LogManager.getLogManager().appendLog(">>> Server avviato il " + date);
 			
 			while (true) {
-				Socket s = ss.accept();
-				new ServerThread(idCounter, s, logManager, users, rooms);
+				Socket socket = ss.accept();
+				new MVCServerThread(idCounter, socket, serverModel);
 				idCounter++;
 			}
 		} catch (IOException e) {

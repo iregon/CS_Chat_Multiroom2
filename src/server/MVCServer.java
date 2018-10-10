@@ -6,6 +6,7 @@ public class MVCServer {
 		ServerModel serverModel = new ServerModel();
 		ServerView serverView = new ServerView();
 		
+		@SuppressWarnings("unused")
 		ServerController serverController = new ServerController(serverModel, serverView);
 		
 		serverView.setVisible(true);

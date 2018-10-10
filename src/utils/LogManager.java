@@ -31,10 +31,9 @@ public class LogManager {
     }
     
     private String generateFileName() {
-    	DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd");
-		Calendar cal = Calendar.getInstance();
+    	String date = DateManager.getDateManager().getTodaysData();
 		
-		String file = "log_" + dateFormat.format(cal.getTime()) + ".dat";
+		String file = "log_" + date + ".dat";
 		
 		return file;
     }

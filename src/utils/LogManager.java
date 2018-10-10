@@ -30,6 +30,16 @@ public class LogManager {
     	diskManager.writeOnDisk(path, fileName, msg);
     }
     
+    public synchronized void appendLogWithNewLine(String msg) {
+    	String fileName = generateFileName();
+    	diskManager.writeOnDisk(path, fileName, msg + "\n");
+    }
+    
+    public synchronized void appendErrorLogWithNewLine(String msg) {
+    	String fileName = generateFileName();
+    	diskManager.writeOnDisk(path, fileName, ">>> ERROR\n> " + msg + "\n");
+    }
+    
     private String generateFileName() {
     	String date = DateManager.getDateManager().getTodaysData();
 		

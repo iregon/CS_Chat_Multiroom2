@@ -3,41 +3,51 @@ package server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
+import config.Configuration;
 import server.thread.MVCServerThread;
 import utils.DateManager;
 import utils.LogManager;
 
 public class ServerController {
+	
 	private ServerModel serverModel;
 	private ServerView serverView;
 	
 	private int idCounter = 1;
 	
+	private ServerSocket serverSocket;
+	
 	public ServerController(ServerModel serverModel, ServerView serverView) {
 		this.serverModel = serverModel;
 		this.serverView = serverView;
 		
+		String date = DateManager.getDateManager().getTodaysData();
+		LogManager.getLogManager().appendLog(">>> Server avviato il " + date + "\n");
+		
+		startServerSocket();
+		
 		connectionHandler();
 	}
 	
-	private void connectionHandler() {
+	private void startServerSocket() {
+		int port = Configuration.getConfiguration().getPort();
 		try {
-			ServerSocket ss = new ServerSocket(9090);
-			
-			String date = DateManager.getDateManager().getTodaysData();
-			LogManager.getLogManager().appendLog(">>> Server avviato il " + date);
-			
+			serverSocket = new ServerSocket(port);
+		} catch (IOException e) {
+			LogManager.getLogManager().appendErrorLogWithNewLine(e.getMessage());
+		}
+	}
+	
+	private void connectionHandler() {
+		try {			
 			while (true) {
-				Socket socket = ss.accept();
+				Socket socket = serverSocket.accept();
 				new MVCServerThread(idCounter, socket, serverModel);
 				idCounter++;
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			LogManager.getLogManager().appendErrorLogWithNewLine(e.getMessage());
 		}
 	}
 }

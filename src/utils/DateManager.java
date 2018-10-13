@@ -8,11 +8,7 @@ public class DateManager {
 	
 	private volatile static DateManager instance = null;
 	
-	private DateManager dateManager;
-	
-	private DateManager() {
-		dateManager = new DateManager();
-    }
+	private DateManager() {}
  
     public static DateManager getDateManager() {
         if (instance == null) {
@@ -25,6 +21,13 @@ public class DateManager {
 	
 	public String getTodaysData() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd");
+		Calendar cal = Calendar.getInstance();
+		
+		return dateFormat.format(cal.getTime());
+	}
+	
+	public String getTodaysDataTime() {
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		Calendar cal = Calendar.getInstance();
 		
 		return dateFormat.format(cal.getTime());

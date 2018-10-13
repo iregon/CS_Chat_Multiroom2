@@ -22,12 +22,12 @@ public class ServerController {
 		this.serverModel = serverModel;
 		this.serverView = serverView;
 		
-		String date = DateManager.getDateManager().getTodaysData();
+		String date = DateManager.getDateManager().getTodaysDataTime();
 		LogManager.getLogManager().appendLog(">>> Server avviato il " + date + "\n");
 		
 		startServerSocket();
 		
-		connectionHandler();
+		connectionsHandler();
 	}
 	
 	private void startServerSocket() {
@@ -39,7 +39,7 @@ public class ServerController {
 		}
 	}
 	
-	private void connectionHandler() {
+	private void connectionsHandler() {
 		try {			
 			while (true) {
 				Socket socket = serverSocket.accept();

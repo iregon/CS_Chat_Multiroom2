@@ -1,9 +1,5 @@
 package utils;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 public class LogManager {
 	
     private volatile static LogManager instance = null;
@@ -28,16 +24,21 @@ public class LogManager {
     public synchronized void appendLog(String msg) {
     	String fileName = generateFileName();
     	diskManager.writeOnDisk(path, fileName, msg);
+    	ServerViewLogManager.getDateManager().appendLog(msg);
     }
     
     public synchronized void appendLogWithNewLine(String msg) {
     	String fileName = generateFileName();
-    	diskManager.writeOnDisk(path, fileName, msg + "\n");
+    	String msg1 = msg + "\n";
+    	diskManager.writeOnDisk(path, fileName, msg1);
+    	ServerViewLogManager.getDateManager().appendLog(msg1);
     }
     
     public synchronized void appendErrorLogWithNewLine(String msg) {
     	String fileName = generateFileName();
-    	diskManager.writeOnDisk(path, fileName, ">>> ERROR\n> " + msg + "\n");
+    	String msg1 = ">>> ERROR\n> " + msg + "\n";
+    	diskManager.writeOnDisk(path, fileName, msg1);
+    	ServerViewLogManager.getDateManager().appendLog(msg1);
     }
     
     private String generateFileName() {

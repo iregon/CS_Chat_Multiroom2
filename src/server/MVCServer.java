@@ -4,7 +4,8 @@ import utils.ServerViewLogManager;
 
 public class MVCServer {
 	
-	public static void main(String[] args) {
+	public MVCServer() {
+		System.out.println("aaaa");
 		ServerModel serverModel = new ServerModel();
 		ServerView serverView = new ServerView();
 		
@@ -16,4 +17,7 @@ public class MVCServer {
 		serverView.setVisible(true);
 	}
 	
+	public static void main(String[] args) {
+		new MVCServer();
+	}	
 }

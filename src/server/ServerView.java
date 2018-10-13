@@ -1,11 +1,9 @@
 package server;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -45,6 +43,7 @@ public class ServerView extends JFrame{
 		co.add(generateMainJPanel());
 
 		this.setSize(460,500);
+		this.setMinimumSize(new Dimension(460, 500));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}

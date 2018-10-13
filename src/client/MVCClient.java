@@ -1,7 +1,8 @@
 package client;
 
 public class MVCClient {
-	public static void main(String[] args) {
+	
+	public MVCClient() {
 		ClientModel clientModel = new ClientModel();
 		ClientView clientView = new ClientView();
 		
@@ -9,5 +10,9 @@ public class MVCClient {
 		ClientController serverController = new ClientController(clientModel, clientView);
 		
 		clientView.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		new MVCClient();
 	}
 }

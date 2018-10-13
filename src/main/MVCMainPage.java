@@ -2,12 +2,12 @@ package main;
 
 public class MVCMainPage {
 	public static void main(String[] args) {
-		MainPageModel clientModel = new MainPageModel();
-		MainPageView clientView = new MainPageView();
+		MainPageModel mainPageModel = new MainPageModel();
+		MainPageView mainPageView = new MainPageView();
 		
 		@SuppressWarnings("unused")
-		MainPageController serverController = new MainPageController(clientModel, clientView);
+		MainPageController serverController = new MainPageController(mainPageModel, mainPageView);
 		
-		clientView.setVisible(true);
+		mainPageView.setVisible(true);
 	}
 }

@@ -5,11 +5,10 @@ import utils.ServerViewLogManager;
 public class MVCServer {
 	
 	public MVCServer() {
-		System.out.println("aaaa");
 		ServerModel serverModel = new ServerModel();
 		ServerView serverView = new ServerView();
 		
-		ServerViewLogManager.getDateManager().setServerView(serverView);
+		ServerViewLogManager.getServerViewLogManager().setServerView(serverView);
 		
 		@SuppressWarnings("unused")
 		ServerController serverController = new ServerController(serverModel, serverView);

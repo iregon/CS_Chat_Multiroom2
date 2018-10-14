@@ -6,13 +6,13 @@ import server.ServerModel;
 
 public class MVCServerThread {
 	
-	public MVCServerThread(int idCounter, Socket socket, ServerModel serverModel) {
+	public MVCServerThread(Socket socket, ServerModel serverModel) {
 		
 		ServerThreadModel serverThreadModel = new ServerThreadModel();
 		ServerThreadView serverThreadView = new ServerThreadView();
 		
 		@SuppressWarnings("unused")
-		ServerThreadController serverController = new ServerThreadController(serverThreadModel, serverThreadView, idCounter, socket, serverModel);
+		ServerThreadController serverController = new ServerThreadController(serverThreadModel, serverThreadView, socket, serverModel);
 		
 		serverThreadView.setVisible(true);
 	}	

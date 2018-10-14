@@ -3,11 +3,14 @@ package server;
 
 public class User {
 	
-	private int id;
-	private String nickname;
+	private String id;
+	private String nickname = null;
 	
-	public User(int id, String nickname) {
-		super();
+	public User(String id) {
+		this.id = id;
+	}
+	
+	public User(String id, String nickname) {
 		this.id = id;
 		this.nickname = nickname;
 	}
@@ -19,5 +22,12 @@ public class User {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}	
 }

@@ -3,9 +3,7 @@ package config;
 public class Configuration {
 	
 	private volatile static Configuration instance = null;
-	
-	private Configuration configuration;
-	
+		
 	public static Configuration getConfiguration() {
         if (instance == null) {
             synchronized (Configuration.class){
@@ -20,7 +18,7 @@ public class Configuration {
 	 */
 	
 	// Connection settings
-	private int port = 9090;
+	private int port = 9092;
 
 	public int getPort() {
 		return port;

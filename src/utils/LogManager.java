@@ -24,21 +24,21 @@ public class LogManager {
     public synchronized void appendLog(String msg) {
     	String fileName = generateFileName();
     	diskManager.writeOnDisk(path, fileName, msg);
-    	ServerViewLogManager.getDateManager().appendLog(msg);
+    	ServerViewLogManager.getServerViewLogManager().appendLog(msg);
     }
     
     public synchronized void appendLogWithNewLine(String msg) {
     	String fileName = generateFileName();
     	String msg1 = msg + "\n";
     	diskManager.writeOnDisk(path, fileName, msg1);
-    	ServerViewLogManager.getDateManager().appendLog(msg1);
+    	ServerViewLogManager.getServerViewLogManager().appendLog(msg1);
     }
     
     public synchronized void appendErrorLogWithNewLine(String msg) {
     	String fileName = generateFileName();
     	String msg1 = ">>> ERROR\n> " + msg + "\n";
     	diskManager.writeOnDisk(path, fileName, msg1);
-    	ServerViewLogManager.getDateManager().appendLog(msg1);
+    	ServerViewLogManager.getServerViewLogManager().appendLog(msg1);
     }
     
     private String generateFileName() {

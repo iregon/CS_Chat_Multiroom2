@@ -10,7 +10,7 @@ public class ServerViewLogManager {
 	
 	private ServerViewLogManager() {}
  
-    public static ServerViewLogManager getDateManager() {
+    public static ServerViewLogManager getServerViewLogManager() {
         if (instance == null) {
             synchronized (ServerViewLogManager.class){
                 if (instance == null) instance = new ServerViewLogManager();

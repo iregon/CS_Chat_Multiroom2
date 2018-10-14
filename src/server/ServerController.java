@@ -14,8 +14,6 @@ public class ServerController {
 	private ServerModel serverModel;
 	private ServerView serverView;
 	
-	private int idCounter = 1;
-	
 	private ServerSocket serverSocket;
 	
 	public ServerController(ServerModel serverModel, ServerView serverView) {
@@ -43,8 +41,7 @@ public class ServerController {
 		try {			
 			while (true) {
 				Socket socket = serverSocket.accept();
-				new MVCServerThread(idCounter, socket, serverModel);
-				idCounter++;
+				new MVCServerThread(socket, serverModel);
 			}
 		} catch (IOException e) {
 			LogManager.getLogManager().appendErrorLogWithNewLine(e.getMessage());

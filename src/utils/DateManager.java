@@ -1,5 +1,6 @@
 package utils;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -19,17 +20,21 @@ public class DateManager {
         return instance;
     }
 	
-	public String getTodaysData() {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd");
+	public synchronized String getTodaysData() {
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Calendar cal = Calendar.getInstance();
 		
 		return dateFormat.format(cal.getTime());
 	}
 	
-	public String getTodaysDataTime() {
+	public synchronized String getTodaysDataTime() {
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		Calendar cal = Calendar.getInstance();
 		
 		return dateFormat.format(cal.getTime());
+	}
+	
+	public synchronized long getTimestamp() {
+		return new Timestamp(System.currentTimeMillis()).getTime();
 	}
 }

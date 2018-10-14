@@ -24,7 +24,7 @@ public class ServerThreadController {
 	}
 	
 	private void createNewUser() {
-		String msgToId = DateManager.getDateManager().getTodaysDataTime() + socket.getLocalAddress();
+		String msgToId = Long.toString(DateManager.getDateManager().getTimestamp()) + socket.getLocalAddress();
 		String id = MD5MessageDigester.getMD5MessageDigester().stringToMD5(msgToId);
 		User newUser = new User(id);
 	}

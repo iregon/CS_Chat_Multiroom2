@@ -29,14 +29,14 @@
     </target>
 
     <!-- Creates Javadoc -->
-    <target name="docs" depends="compile">
+    <!--<target name="docs" depends="compile">
         <javadoc packagenames="src" sourcepath="${src.dir}" destdir="${docs.dir}">
-            <!-- Define which files / directory should get included, we include all -->
+            Define which files / directory should get included, we include all
              <fileset dir="${src.dir}">
                 <include name="**" />
              </fileset>
         </javadoc>
-    </target>
+    </target>-->
 
     <!--Creates the deployable jar file  -->
     <!--<target name="jar" depends="compile">
@@ -47,7 +47,7 @@
         </jar>
     </target>-->
 
-    <target name="main" depends="compile, docs">
+    <target name="main" depends="compile">
         <description>Main target</description>
     </target>
 

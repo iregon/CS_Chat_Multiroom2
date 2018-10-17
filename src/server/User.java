@@ -1,6 +1,10 @@
 package server;
 
-
+/**
+ * 
+ * @author Alessandro
+ *
+ */
 public class User {
 	
 	private String id;

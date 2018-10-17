@@ -1,5 +1,10 @@
 package config;
 
+/**
+ * 
+ * @author Alessandro
+ *
+ */
 public class Configuration {
 	
 	private volatile static Configuration instance = null;

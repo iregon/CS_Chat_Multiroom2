@@ -1,7 +1,13 @@
+
 package server;
 
 import utils.ServerViewLogManager;
 
+/**
+ * 
+ * @author Alessandro
+ *
+ */
 public class MVCServer {
 	
 	public MVCServer() {

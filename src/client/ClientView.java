@@ -18,6 +18,11 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+/**
+ * 
+ * @author Alessandro
+ *
+ */
 public class ClientView extends JFrame{
 	
 	private static final long serialVersionUID = 1L;

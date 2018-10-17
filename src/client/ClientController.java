@@ -6,6 +6,11 @@ import java.net.UnknownHostException;
 
 import config.Configuration;
 
+/**
+ * 
+ * @author Alessandro
+ *
+ */
 public class ClientController {
 	
 	private ClientModel clientModel;

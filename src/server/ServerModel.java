@@ -2,6 +2,11 @@ package server;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Alessandro
+ *
+ */
 public class ServerModel {
 	
 	private ArrayList<User> users = new ArrayList<User>();

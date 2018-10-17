@@ -1,18 +1,8 @@
 package server;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Insets;
+import java.awt.*;
 
-import javax.swing.JEditorPane;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTextPane;
-import javax.swing.border.EmptyBorder;
+import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -23,6 +13,11 @@ import javax.swing.text.StyledDocument;
 
 import utils.LogManager;
 
+/**
+ * 
+ * @author Alessandro
+ *
+ */
 public class ServerView extends JFrame{
 	
 	private static final long serialVersionUID = 1L;

@@ -9,6 +9,11 @@ import server.thread.MVCServerThread;
 import utils.DateManager;
 import utils.LogManager;
 
+/**
+ * 
+ * @author Alessandro
+ *
+ */
 public class ServerController {
 	
 	private ServerModel serverModel;

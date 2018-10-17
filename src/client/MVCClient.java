@@ -1,7 +1,12 @@
 package client;
 
+/**
+ * 
+ * @author Alessandro
+ *
+ */
 public class MVCClient {
-	
+
 	public MVCClient() {
 		ClientModel clientModel = new ClientModel();
 		ClientView clientView = new ClientView();

@@ -2,6 +2,11 @@ package server;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Alessandro
+ *
+ */
 public class Room {
 	private String name;
 	

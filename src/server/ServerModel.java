@@ -31,12 +31,5 @@ public class ServerModel {
 	
 	public void removeUser(User user) {
 		users.remove(user);
-		
-//		for (int i = 0; i < users.size(); i++) {
-//			if(users.get(i) == user) {
-//				users.remove(i);
-//				break;
-//			}
-//		}
 	}
 }

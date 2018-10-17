@@ -1,5 +1,7 @@
 package utils;
 
+import java.awt.Color;
+
 import server.ServerView;
 
 public class ServerViewLogManager {
@@ -36,6 +38,10 @@ public class ServerViewLogManager {
     }
     
     public synchronized void appendErrorLogWithNewLine(String msg) {
-    	serverView.appendLog(">>> ERROR\n> " + msg + "\n");
+    	serverView.appendLog(msg, Color.RED);
+    }
+    
+    public synchronized void appendLogWithNewLineAndColor(String msg, Color color) {
+    	serverView.appendLog(msg + "\n", color);
     }
 }

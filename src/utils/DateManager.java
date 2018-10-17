@@ -21,13 +21,13 @@ public class DateManager {
     }
 	
 	public synchronized String getTodaysData() {
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd");
 		Calendar cal = Calendar.getInstance();
 		
 		return dateFormat.format(cal.getTime());
 	}
 	
-	public synchronized String getTodaysDataTime() {
+	public synchronized String getTodaysDateTime() {
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		Calendar cal = Calendar.getInstance();
 		

@@ -20,7 +20,7 @@ public class ServerController {
 		this.serverModel = serverModel;
 		this.serverView = serverView;
 		
-		String date = DateManager.getDateManager().getTodaysDataTime();
+		String date = DateManager.getDateManager().getTodaysDateTime();
 		LogManager.getLogManager().appendLog(">>> Server avviato il " + date + "\n");
 		
 		startServerSocket();

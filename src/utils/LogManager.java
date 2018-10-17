@@ -1,5 +1,7 @@
 package utils;
 
+import java.awt.Color;
+
 public class LogManager {
 	
     private volatile static LogManager instance = null;
@@ -38,7 +40,14 @@ public class LogManager {
     	String fileName = generateFileName();
     	String msg1 = ">>> ERROR\n> " + msg + "\n";
     	diskManager.writeOnDisk(path, fileName, msg1);
-    	ServerViewLogManager.getServerViewLogManager().appendLog(msg1);
+    	ServerViewLogManager.getServerViewLogManager().appendErrorLogWithNewLine(msg1);
+    }
+    
+    public synchronized void appendLogWithNewLineAndColor(String msg, Color color) {
+    	String fileName = generateFileName();
+    	String msg1 = msg + "\n";
+    	diskManager.writeOnDisk(path, fileName, msg1);
+    	ServerViewLogManager.getServerViewLogManager().appendLogWithNewLineAndColor(msg1, color);
     }
     
     private String generateFileName() {

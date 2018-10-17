@@ -1,15 +1,25 @@
 package server;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Insets;
 
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyleContext;
+import javax.swing.text.StyledDocument;
 
 public class ServerView extends JFrame{
 	
@@ -19,7 +29,7 @@ public class ServerView extends JFrame{
 	
 	private JPanel logsPanel;
 	private JScrollPane logsScrollPane;
-	private JTextArea logsTextArea;
+	private JTextPane logsTextPane;
 	
 	private JPanel optionsPanel;
 	
@@ -29,8 +39,8 @@ public class ServerView extends JFrame{
 		mainTabbedPane = new JTabbedPane();
 		
 		logsPanel = new JPanel();
-		logsTextArea = new JTextArea(0,40);
-		logsScrollPane = new JScrollPane(logsTextArea);
+		logsTextPane = new JTextPane();
+		logsScrollPane = new JScrollPane(logsTextPane);
 		
 		optionsPanel = new JPanel();
 		
@@ -53,14 +63,12 @@ public class ServerView extends JFrame{
 		
 		jp.setLayout(new BorderLayout());
 		jp.setBorder(new EtchedBorder());
-		
-		logsTextArea.setLineWrap(true);
-		logsTextArea.setWrapStyleWord(true);
-		logsTextArea.setEditable(false);
+	
+		logsTextPane.setEditable(false);
 		
 		logsPanel.setLayout(new BorderLayout());
 		logsPanel.add(logsScrollPane, BorderLayout.CENTER);
-				
+						
 		mainTabbedPane.addTab("Logs", logsPanel);
 		mainTabbedPane.addTab("Options", optionsPanel);
 		
@@ -70,6 +78,22 @@ public class ServerView extends JFrame{
 	}
 	
 	public void appendLog(String log) {
-		logsTextArea.append(log);
+		appendToPane(log, Color.BLACK);
+	}
+	
+	public void appendLog(String log, Color color) {
+		appendToPane(log, color);
+	}
+	
+	private void appendToPane(String msg, Color color) {
+		StyledDocument doc = logsTextPane.getStyledDocument();
+		try {
+			StyleContext sc = StyleContext.getDefaultStyleContext();
+			AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, color);
+			doc.insertString(doc.getLength(), msg, aset);
+		} catch (BadLocationException ble) {
+			//TODO: Gestire errore nell'inserimento di una stringa nel JtextPanel
+		    System.err.println("Couldn't insert initial text into text pane.");
+		}
 	}
 }

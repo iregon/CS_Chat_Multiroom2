@@ -23,9 +23,9 @@
 
     <!-- Compiles the java code (including the usage of library for JUnit -->
     <target name="compile" depends="clean, makedir">
-        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false">
-        </javac>
-
+        <!--<javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false">
+        </javac>-->
+    	<echo message="Compiling source code"/>
     </target>
 
     <!-- Creates Javadoc -->

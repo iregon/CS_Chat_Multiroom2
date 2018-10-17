@@ -7,7 +7,11 @@ public class ServerModel {
 	private ArrayList<User> users = new ArrayList<User>();
 	private ArrayList<Room> rooms = new ArrayList<Room>();
 	
-	public ServerModel() {}
+	private Room defaultRoom = new Room("Spawn");
+	
+	public ServerModel() {
+		rooms.add(defaultRoom);
+	}
 
 	public ArrayList<User> getUsers() {
 		return users;
@@ -31,5 +35,18 @@ public class ServerModel {
 	
 	public void removeUser(User user) {
 		users.remove(user);
+	}
+	
+	public Room getDefaultRoom() {
+		return defaultRoom;
+	}
+	
+	public void addUserToRoom(User user, Room room) {
+		for(int i = 0; i < rooms.size(); i++) {
+			if(rooms.get(i).getName().equalsIgnoreCase(room.getName())) {
+				rooms.get(i).addUser(user);
+				break;
+			}
+		}
 	}
 }

@@ -21,6 +21,8 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
 import javax.swing.text.StyledDocument;
 
+import utils.LogManager;
+
 public class ServerView extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
@@ -44,10 +46,10 @@ public class ServerView extends JFrame{
 		
 		optionsPanel = new JPanel();
 		
-		createGUI();
+		initialize();
 	}
 
-	private void createGUI() {
+	private void initialize() {
 		
 		Container co = this.getContentPane();
 		co.add(generateMainJPanel());
@@ -92,8 +94,7 @@ public class ServerView extends JFrame{
 			AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, color);
 			doc.insertString(doc.getLength(), msg, aset);
 		} catch (BadLocationException ble) {
-			//TODO: Gestire errore nell'inserimento di una stringa nel JtextPanel
-		    System.err.println("Couldn't insert initial text into text pane.");
+			LogManager.getLogManager().appendErrorLogWithNewLine("Couldn't insert initial text into text pane");
 		}
 	}
 }

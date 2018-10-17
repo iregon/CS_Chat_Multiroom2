@@ -29,8 +29,10 @@ public class ServerThreadController {
 		String msgToId = Long.toString(DateManager.getDateManager().getTimestamp()) + socket.getLocalAddress();
 		String id = MD5MessageDigester.getMD5MessageDigester().stringToMD5(msgToId);
 		User newUser = new User(id);
+				
+		serverModel.addUser(newUser);
 		
-		LogManager.getLogManager().appendLogWithNewLineAndColor(">>> NEW USER\n> ID: " + id, Color.BLUE);
+		LogManager.getLogManager().appendLogWithNewLineAndColor(">>> NEW USER CONNECTED\n> ID: " + id, Color.BLUE);
 	}
 
 }

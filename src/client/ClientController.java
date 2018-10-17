@@ -15,16 +15,16 @@ public class ClientController {
 		this.clientModel = clientModel;
 		this.clientView = clientView;
 		
-		try {
-			int port = Configuration.getConfiguration().getPort();
-			Socket s = new Socket("127.0.0.1", port);
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			int port = Configuration.getConfiguration().getPort();
+//			Socket s = new Socket("127.0.0.1", port);
+//		} catch (UnknownHostException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 }
